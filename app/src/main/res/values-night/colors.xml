@@ -10,4 +10,5 @@
 
     <color name="background">@color/black</color>
     <color name="card_background">#101010</color>
+    <color name="red">#EF4949</color>
 </resources>

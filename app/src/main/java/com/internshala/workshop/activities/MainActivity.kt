@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.internshala.workshop.fragments.ProfileFrag
-import com.internshala.settings.SettingsFrag
+import com.internshala.workshop.fragments.SettingsFrag
 import com.internshala.workshop.R
 import com.internshala.workshop.fragments.WorkshopFrag
 

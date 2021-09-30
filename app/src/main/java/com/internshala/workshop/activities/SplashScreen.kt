@@ -1,6 +1,7 @@
 package com.internshala.workshop.activities
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -11,11 +12,17 @@ import com.internshala.intro.Introduction
 import com.internshala.workshop.R
 import com.internshala.utils.isFirstRun
 import com.internshala.utils.isValidUser
+import android.view.WindowInsetsController
+
+import android.view.WindowInsets
+import android.view.WindowManager
+
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+
     }
 
     override fun onStart() {

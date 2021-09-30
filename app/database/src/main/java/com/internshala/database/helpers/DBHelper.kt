@@ -176,8 +176,46 @@ class DBHelper(var context:Context?):
         return result > 0
     }
 
+    /**
+     * This function returns the list of all the workshops a student is enrolled in
+     *
+     * @param studentID [Int] - The student id
+     * @return [MutableList<Workshop>? ]- Enrolled workshop list
+     */
+    fun getStudentEnrollments(studentID: Int): MutableList<Workshop>?{
+        val enrolledList = mutableListOf<Workshop>()
+        val db = this.readableDatabase
+        val query ="SELECT * FROM $WORKSHOP_TABLE " +
+                "INNER JOIN $ENROLLMENT_TABLE " +
+                "ON $WORKSHOP_TABLE.$WORKSHOP_COL_ID = $ENROLLMENT_TABLE.$ENROLLMENT_COL_WORKSHOP_ID " +
+                "WHERE $ENROLLMENT_TABLE.$ENROLLMENT_COL_STUDENT_ID = $studentID"
+
+        val cursor = db.rawQuery(query, null)
+        return if(cursor.moveToFirst()){
+            do enrolledList.add(getWorkshopFromCursor(cursor))
+                while(cursor.moveToNext())
+            cursor.close()
+            db.close()
+            enrolledList
+        }else{
+            cursor.close()
+            db.close()
+            null
+        }
+    }
+
+    /**
+     * This function deleted an enrollment of specific student from specific workshop
+     * @param studentID Int
+     * @param workshopID Int
+     * @return Boolean
+     */
     fun deleteEnrollment(studentID: Int, workshopID: Int): Boolean{
-        
+        val db = this.writableDatabase
+        //val query = "DELETE FROM $ENROLLMENT_TABLE WHERE $ENROLLMENT_COL_STUDENT_ID = $studentID AND $ENROLLMENT_COL_WORKSHOP_ID = $workshopID"
+        return db.delete(ENROLLMENT_TABLE,
+            "$ENROLLMENT_COL_STUDENT_ID = ? AND $ENROLLMENT_COL_WORKSHOP_ID = ?",
+            arrayOf(studentID.toString(), workshopID.toString())) > 0
     }
 
     /**

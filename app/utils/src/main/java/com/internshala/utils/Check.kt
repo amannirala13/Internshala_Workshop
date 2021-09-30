@@ -79,7 +79,7 @@ fun logoutUser(context:Context){
  *
  * @return [Int] - User_id
  */
-fun getUserID(context: Context):Int{
+fun getCurrentUserID(context: Context):Int{
     val sharedPreferences = context.getSharedPreferences(
         AuthPreferenceConstants.AUTH_PREFERENCE_MANAGER,
         Context.MODE_PRIVATE)

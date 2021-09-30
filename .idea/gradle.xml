@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/app/auth" />
             <option value="$PROJECT_DIR$/app/database" />
             <option value="$PROJECT_DIR$/app/intro" />
-            <option value="$PROJECT_DIR$/app/settings" />
             <option value="$PROJECT_DIR$/app/utils" />
           </set>
         </option>

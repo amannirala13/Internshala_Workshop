@@ -5,6 +5,7 @@
     <application>
         <activity
             android:name=".activities.Authentication"
+            android:screenOrientation="portrait"
             android:exported="true" />
     </application>
 

@@ -12,12 +12,17 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.internshala.auth.activities.Authentication
+import com.internshala.database.helpers.DBHelper
+import com.internshala.utils.getCurrentUserID
 import com.internshala.utils.isValidUser
 import com.internshala.utils.logoutUser
 import com.internshala.workshop.R
 import com.internshala.workshop.activities.MainActivity
+import com.internshala.workshop.adapters.ProfileEnrolledRecyclerAdapter
+import com.internshala.workshop.adapters.WorkshopRecyclerAdapter
 
 class ProfileFrag : Fragment() {
 
@@ -28,7 +33,10 @@ class ProfileFrag : Fragment() {
 
     private lateinit var signInBtn: Button
     private lateinit var logoutBtn: ImageButton
+
     private lateinit var enrolledRecycler: RecyclerView
+
+    private lateinit var myDBHelper: DBHelper
 
 
     override fun onCreateView(
@@ -48,6 +56,10 @@ class ProfileFrag : Fragment() {
 
         signInBtn = view.findViewById(R.id.profile_sign_in_btn)
         logoutBtn = view.findViewById(R.id.profile_logout_btn)
+
+        enrolledRecycler = view.findViewById(R.id.profile_enrolled_workshop_recycler)
+
+        myDBHelper = DBHelper(context)
 
         val startActivityResultListener = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()){
@@ -80,6 +92,19 @@ class ProfileFrag : Fragment() {
     private fun loadValidUserData() {
         inValidUserUIHolder.visibility = View.GONE
         validUserUIHolder.visibility = View.VISIBLE
+
+        val enrolledList = myDBHelper.getStudentEnrollments(
+            getCurrentUserID(requireActivity()))
+
+        enrolledRecycler.apply{
+            setHasFixedSize(true)
+            val recyclerLayoutManager = LinearLayoutManager(requireActivity())
+            recyclerLayoutManager.orientation = RecyclerView.VERTICAL
+            layoutManager = recyclerLayoutManager
+            adapter = ProfileEnrolledRecyclerAdapter(requireActivity(),
+                enrolledList?:mutableListOf())
+        }
+
     }
 
     /**
