@@ -1,0 +1,13 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in">Sign in</string>
+    <string name="we_need_to_verify_you_before_you_can_use_our_services">We need to verify you before you can use our services.</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="create_a_new_account_in_few_easy_steps">Create a new account in few easy steps!</string>
+    <string name="continue_text">Continue</string>
+    <string name="close_icon">close_icon</string>
+    <string name="phone">Phone</string>
+</resources>

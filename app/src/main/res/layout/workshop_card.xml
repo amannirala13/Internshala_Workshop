@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="15dp"
+    app:cardBackgroundColor="@color/background"
+    android:layout_marginHorizontal="32dp"
+    android:layout_marginTop="32dp"
+    android:layout_marginBottom="16dp"
+    app:cardElevation="32dp"
+    android:translationZ="16dp"
+    android:outlineSpotShadowColor="@color/primary"
+    android:outlineAmbientShadowColor="@color/primary"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/workshop_card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="Title"
+            android:textColor="@color/text"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/workshop_card_agenda"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="Agenda"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/workshop_card_title"
+            app:layout_constraintTop_toBottomOf="@+id/workshop_card_organizer" />
+
+        <TextView
+            android:id="@+id/workshop_card_organizer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:text="Organizer"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/workshop_card_title"
+            app:layout_constraintTop_toBottomOf="@+id/workshop_card_title" />
+
+        <TextView
+            android:id="@+id/workshop_card_duration_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Duration:"
+            android:textColor="@color/text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/workshop_card_title"
+            app:layout_constraintTop_toBottomOf="@+id/workshop_card_agenda" />
+
+        <TextView
+            android:id="@+id/workshop_card_duration_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="7days"
+            android:textColor="@color/text"
+            app:layout_constraintBottom_toBottomOf="@+id/workshop_card_duration_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/workshop_card_duration_label"
+            app:layout_constraintTop_toTopOf="@+id/workshop_card_duration_label" />
+
+        <Button
+            android:id="@+id/workshop_card_apply_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:text="Apply"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:foregroundTint="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workshop_card_duration_label"
+            app:layout_constraintVertical_bias="0.0"
+            android:outlineAmbientShadowColor="@color/primary"
+            android:shadowColor="@color/primary"
+            android:outlineSpotShadowColor="@color/primary"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
