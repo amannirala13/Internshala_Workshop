@@ -82,8 +82,8 @@ The database is called `internshala_workshop.db`. It has 3 tables:
 
 ### `workshop`
 
-| id  | title | agenda | organizer | tags |
-| --- | ----- | ------ | --------- | ---- |
+| id  | title | agenda | organizer | duration | tags |
+| --- | ----- | ------ | --------- | -------- | ---- |
 
 ### `enroll`
 
