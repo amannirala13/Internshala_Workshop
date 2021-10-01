@@ -6,6 +6,12 @@ This repository contains the project that I was asked to make as an assignment.
 
 This is a simple application that is used to register students to particular workshops. This application is a demo and lack some essential features. All the values in the application database is hardcoded (except user data and enrollment data).
 
+### 🧪Download and test:
+
+The application is not on Google PlayStore but you can install it from the releases _(only for testing and feedback purpose)_.
+
+> **Download apk** to run and test the application from [Releases](https://github.com/amannirala13/Internshala_Workshop/releases).
+
 ## 👨‍💻 Technologies used
 
 There are very basic technologies used in the application. They are lister below:
