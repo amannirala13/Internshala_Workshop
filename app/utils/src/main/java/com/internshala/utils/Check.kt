@@ -1,15 +1,13 @@
 package com.internshala.utils
 
 import android.content.Context
-import com.internshala.workshop.utils.AuthPreferenceConstants
-import com.internshala.workshop.utils.FirstRunPreferenceConstants
 
 /**
  * This function checks if the application is being executed for the first time.
  * This function uses shared preferences to store the value.
  *
  *
- * @param context - The context of the activity it's being called from
+ * @param context [Context] - The context of the activity it's being called from
  * @return [Boolean] - 'true' if its the first run else 'false'
  */
 fun isFirstRun(context: Context): Boolean{
@@ -28,7 +26,7 @@ fun isFirstRun(context: Context): Boolean{
  * This function checks if the user is authenticated or not.
  *
  *
- * @param context - The context of the activity it's being called from
+ * @param context [Context]- The context of the activity it's being called from
  * @return [Boolean] - 'true' if the user is logged in else 'false'
  */
 fun isValidUser(context: Context): Boolean{

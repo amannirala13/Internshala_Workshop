@@ -15,6 +15,18 @@ import com.internshala.auth.R
 import com.internshala.database.helpers.DBHelper
 import com.internshala.utils.loginUser
 
+/**
+ * Fragment responsible for user login
+ *
+ * @property emailTextContainer TextInputLayout
+ * @property emailText TextInputEditText
+ * @property passwordTextContainer TextInputLayout
+ * @property passwordText TextInputEditText
+ * @property continueBtn Button
+ * @property email String?
+ * @property password String?
+ * @property myDBHelper DBHelper
+ */
 class SignInFrag : Fragment() {
 
     private lateinit var emailTextContainer: TextInputLayout

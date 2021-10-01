@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 
+/**
+ * This activity is responsible for initial introduction
+ * @property closeBtn Button
+ */
 class Introduction : AppCompatActivity() {
 
     private lateinit var closeBtn: Button

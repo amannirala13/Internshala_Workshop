@@ -14,6 +14,16 @@ import com.internshala.utils.getCurrentUserID
 import com.internshala.workshop.R
 import com.internshala.workshop.adapters.WorkshopRecyclerAdapter
 
+/**
+ *  This fragment displays all the available workshops. Everyone can access this list but has to
+ *  authenticate to enroll in a particular workshop.
+ *
+ * @property workshopRecycler RecyclerView
+ * @property workshopRecyclerAdapter WorkshopRecyclerAdapter
+ * @property myDbHelper DBHelper
+ * @property workshopList MutableList<Workshop>?
+ * @property enrolledList MutableList<Workshop>?
+ */
 class WorkshopFrag : Fragment() {
 
     private lateinit var workshopRecycler: RecyclerView
@@ -41,6 +51,9 @@ class WorkshopFrag : Fragment() {
 
         workshopList = myDbHelper.getAllWorkshops()?:mutableListOf()
         enrolledList = myDbHelper.getStudentEnrollments(getCurrentUserID(requireActivity()))?:mutableListOf()
+
+        workshopList?.sortBy{it.id}
+        enrolledList?.sortBy{it.id}
 
         workshopRecycler.apply {
             setHasFixedSize(true)

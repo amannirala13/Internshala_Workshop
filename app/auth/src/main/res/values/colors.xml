@@ -13,5 +13,5 @@
 
     <color name="background">@color/white</color>
     <color name="text">@color/black</color>
-    <color name="overlay">#0D000000</color>
+    <color name="overlay">#1A000000</color>
 </resources>

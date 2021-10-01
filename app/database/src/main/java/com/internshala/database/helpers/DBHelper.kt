@@ -11,9 +11,21 @@ import android.widget.Toast
 import com.internshala.database.models.Student
 import com.internshala.database.models.Workshop
 
+/**
+ * This class is manages and contains all the important database related operations and schemas
+ * required by the application.
+ *
+ * @property context [Context?]
+ * @constructor
+ */
 class DBHelper(var context:Context?):
     SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
 
+    /**
+     * Companion Object - Contains all database labels
+     *
+     * @constructor All database labels
+     */
     companion object{
         const val DB_NAME = "internshala_workshop.db"
         const val DB_VERSION = 1
@@ -136,6 +148,24 @@ class DBHelper(var context:Context?):
         cursor.close()
         db.close()
         return studentsList
+    }
+
+
+    /**
+     * This function returns the [Student] object based on the student id passed
+     * @param studentId [Int]
+     * @return [Student?] - [null] if no student is found
+     */
+    fun getStudent(studentId: Int):Student?{
+        var student:Student? = null
+        val query = "SELECT * FROM $STUDENTS_TABLE WHERE $STUDENT_COL_ID = $studentId"
+        val db = this.readableDatabase
+
+        val cursor = db.rawQuery(query, null)
+        student = if (cursor.moveToFirst()) getStudentFromCursor(cursor) else null
+        cursor.close()
+        db.close()
+        return student
     }
 
     /**

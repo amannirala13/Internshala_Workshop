@@ -1,1 +1,10 @@
-<resources></resources>
+<resources>
+    <string name="app_name">Internshala Workshop</string>
+    <string name="logout_btn">logout_btn</string>
+    <string name="welcome">Welcome</string>
+    <string name="enrolled">Enrolled workshops</string>
+    <string name="workshops">Workshops</string>
+    <string name="logout">Logout</string>
+    <string name="internshala">Internshala</string>
+    <string name="your_one_stop_destination_for_all_the_latest_workshops_from_all_around_the_globe">Your one stop destination for all the latest workshops from all around the globe</string>
+</resources>

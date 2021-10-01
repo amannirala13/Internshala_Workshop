@@ -3,11 +3,11 @@ package com.internshala.database.models
 /**
  * Model class for student
  *
- * @param id [Integer]
- * @param name [String]
- * @param phone [String]
- * @param email [String]
- * @param password [String]
+ * @param id [Integer?]
+ * @param name [String?]
+ * @param phone [String?]
+ * @param email [String?]
+ * @param password [String?]
  */
 data class Student(
     val id: Int? = null,

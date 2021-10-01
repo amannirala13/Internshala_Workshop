@@ -13,6 +13,14 @@ import com.internshala.database.models.Workshop
 import com.internshala.utils.getCurrentUserID
 import com.internshala.workshop.R
 
+/**
+ * This class is an adapter for recycler view responsible for displaying
+ * enrolled [Workshop] list in 'ProfileFrag' fragment
+ *
+ * @property context Context
+ * @property enrolledList MutableList<Workshop>
+ * @constructor
+ */
 class ProfileEnrolledRecyclerAdapter(
     private val context: Context,
     private val enrolledList: MutableList<Workshop>):

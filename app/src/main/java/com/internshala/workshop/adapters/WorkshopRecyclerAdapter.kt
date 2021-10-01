@@ -18,6 +18,15 @@ import com.internshala.utils.isValidUser
 import com.internshala.utils.loginUser
 import com.internshala.workshop.R
 
+/**
+ * This class is adapter for recycler view responsible to display all [Workshop] objects in
+ * 'WorkshopFrag' fragment.
+ *
+ * @property context Context
+ * @property workshopList MutableList<Workshop>
+ * @property enrolledList MutableList<Workshop>
+ * @constructor
+ */
 class WorkshopRecyclerAdapter(
     private val context: Context,
     private val workshopList: MutableList<Workshop>,

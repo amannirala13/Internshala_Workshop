@@ -4,4 +4,6 @@
     <string name="welcome">Welcome</string>
     <string name="enrolled">Enrolled workshops</string>
     <string name="workshops">Workshops</string>
+    <string name="logout">Logout</string>
+    <string name="internshala">Internshala</string>
 </resources>

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -24,6 +25,19 @@ import com.internshala.workshop.activities.MainActivity
 import com.internshala.workshop.adapters.ProfileEnrolledRecyclerAdapter
 import com.internshala.workshop.adapters.WorkshopRecyclerAdapter
 
+/**
+ * This fragment shows students enrolled workshop list and enables them to login or logout and
+ * change enrollment status.
+ *
+ * @property baseActivity MainActivity
+ * @property inValidUserUIHolder ConstraintLayout
+ * @property validUserUIHolder ConstraintLayout
+ * @property signInBtn Button
+ * @property studentName TextView
+ * @property logoutBtn ImageButton
+ * @property enrolledRecycler RecyclerView
+ * @property myDBHelper DBHelper
+ */
 class ProfileFrag : Fragment() {
 
     private lateinit var baseActivity: MainActivity
@@ -32,6 +46,7 @@ class ProfileFrag : Fragment() {
     private lateinit var validUserUIHolder: ConstraintLayout
 
     private lateinit var signInBtn: Button
+    private lateinit var studentName: TextView
     private lateinit var logoutBtn: ImageButton
 
     private lateinit var enrolledRecycler: RecyclerView
@@ -55,6 +70,7 @@ class ProfileFrag : Fragment() {
         validUserUIHolder = view.findViewById(R.id.profile_valid_user_holder)
 
         signInBtn = view.findViewById(R.id.profile_sign_in_btn)
+        studentName = view.findViewById(R.id.profile_student_name_text)
         logoutBtn = view.findViewById(R.id.profile_logout_btn)
 
         enrolledRecycler = view.findViewById(R.id.profile_enrolled_workshop_recycler)
@@ -87,15 +103,19 @@ class ProfileFrag : Fragment() {
     }
 
     /**
-     *
+     * Loads data if user is valid and shows on the UI
      */
     private fun loadValidUserData() {
         inValidUserUIHolder.visibility = View.GONE
         validUserUIHolder.visibility = View.VISIBLE
 
+        val currentStudent = myDBHelper.getStudent(getCurrentUserID(requireActivity()))
+        studentName.text = currentStudent?.name?:""
+
         val enrolledList = myDBHelper.getStudentEnrollments(
             getCurrentUserID(requireActivity()))
 
+        enrolledList?.sortBy{it.id}
         enrolledRecycler.apply{
             setHasFixedSize(true)
             val recyclerLayoutManager = LinearLayoutManager(requireActivity())
@@ -108,7 +128,7 @@ class ProfileFrag : Fragment() {
     }
 
     /**
-     *
+     * Updates the UI when the user is not logged in
      */
     private fun showInvalidUserUI(){
         inValidUserUIHolder.visibility = View.VISIBLE

@@ -16,6 +16,24 @@ import com.internshala.database.helpers.DBHelper
 import com.internshala.database.models.Student
 import com.internshala.utils.loginUser
 
+/**
+ * Fragment responsible for user registration
+ *
+ * @property nameTextContainer TextInputLayout
+ * @property nameText TextInputEditText
+ * @property emailTextContainer TextInputLayout
+ * @property emailText TextInputEditText
+ * @property phoneTextContainer TextInputLayout
+ * @property phoneText TextInputEditText
+ * @property passwordTextContainer TextInputLayout
+ * @property passwordText TextInputEditText
+ * @property continueBtn Button
+ * @property myDBHelper DBHelper
+ * @property name String?
+ * @property email String?
+ * @property phone String?
+ * @property password String?
+ */
 class RegisterFrag : Fragment() {
 
     private lateinit var nameTextContainer: TextInputLayout

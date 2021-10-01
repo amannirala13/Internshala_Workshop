@@ -3,7 +3,15 @@ package com.internshala.database.models
 import java.util.*
 
 /**
- * Model class for Workshop events
+ * This is the model class for Workshops
+ *
+ * @param id [Int?]
+ * @param title [String?]
+ * @param agenda [String?]
+ * @param organizer [String?]
+ * @param durationInDays [Int?]
+ * @param tags [String?]
+ * @constructor
  */
 data class Workshop(
     val id: Int? = null,

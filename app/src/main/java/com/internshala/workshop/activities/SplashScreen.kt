@@ -17,7 +17,15 @@ import android.view.WindowInsetsController
 import android.view.WindowInsets
 import android.view.WindowManager
 
-
+/**
+ * Splash screen:
+ *
+ * The first screen of the activity. Its main purpose is branding and doing some initial
+ * task before the application could start its services. However, in this application is just for
+ * branding.
+ *
+ * @constructor
+ */
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +35,12 @@ class SplashScreen : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        /**
+         * Adding a delay of 2.5s for better experience
+         */
         Handler(Looper.getMainLooper()).postDelayed({
             endSplashScreen()
-        }, 2500)
+        }, 2500) //Change this value to change the splashscreen duration
     }
 
     /**

@@ -11,6 +11,12 @@ import com.internshala.auth.fragments.RegisterFrag
 import com.internshala.auth.fragments.SignInFrag
 import com.internshala.utils.isValidUser
 
+/**
+ * Main activity for authentication feature of the application
+ * @property bottomNav BottomNavigationView
+ * @property closeBtn ImageButton
+ * @property activeFragment Fragment?
+ */
 class Authentication : AppCompatActivity() {
 
     private lateinit var bottomNav: BottomNavigationView
@@ -32,10 +38,11 @@ class Authentication : AppCompatActivity() {
         val signInFragment = SignInFrag()
         val registerFragment = RegisterFrag()
 
-        changeActiveFragment(signInFragment)
+        if(savedInstanceState == null)
+            changeActiveFragment(signInFragment)
 
         bottomNav = findViewById(R.id.bottom_nav)
-        bottomNav.setOnNavigationItemSelectedListener{item->
+        bottomNav.setOnItemSelectedListener{item->
             when(item.itemId){
                 R.id.bottom_nav_sign_in ->{
                    changeActiveFragment(signInFragment) }
@@ -46,6 +53,10 @@ class Authentication : AppCompatActivity() {
         }
     }
 
+    /**
+     * Changes the active fragment
+     * @param fragment [Fragment]
+     */
     private fun changeActiveFragment(fragment: Fragment){
         if(activeFragment != fragment){
             if(activeFragment != null)
